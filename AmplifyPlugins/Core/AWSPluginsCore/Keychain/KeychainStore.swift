@@ -279,3 +279,36 @@ extension KeychainStore: DefaultLogger {
 
     public nonisolated var log: Logger { Self.log }
 }
+
+extension KeychainStoreBehavior {
+    @_spi(KeychainStore)
+    public func _getString(_ key: String) throws -> String {
+        throw KeychainStoreError.unknown("_getString not implemented")
+    }
+
+    @_spi(KeychainStore)
+    public func _getData(_ key: String) throws -> Data {
+        throw KeychainStoreError.unknown("_getData not implemented")
+    }
+
+    @_spi(KeychainStore)
+    public func _set(_ value: String, key: String) throws {
+        throw KeychainStoreError.unknown("_set(String, key:) not implemented")
+    }
+
+    @_spi(KeychainStore)
+    public func _set(_ value: Data, key: String) throws {
+        throw KeychainStoreError.unknown("_set(Data, key:) not implemented")
+    }
+
+    @_spi(KeychainStore)
+    public func _remove(_ key: String) throws {
+        throw KeychainStoreError.unknown("_remove not implemented")
+    }
+
+    @_spi(KeychainStore)
+    public func _removeAll() throws {
+        throw KeychainStoreError.unknown("_removeAll not implemented")
+    }
+}
+
