@@ -75,7 +75,6 @@ public struct TemporalFormat {
         return keyPath
     }
 
-    @usableFromInline
     internal static func sortedFormats(for type: TemporalSpec.Type) -> [String] {
         let formats: [String]
         // If the TemporalSpec is `Date`, let's only return `.full` and `.short`
@@ -91,7 +90,6 @@ public struct TemporalFormat {
         return formats
     }
 
-    @usableFromInline
     internal func callAsFunction(for type: TemporalSpec.Type) -> String {
         self[keyPath: keyPath(for: type)]
     }

@@ -8,13 +8,13 @@
 import Foundation
 
 public extension Sequence where Element: SignedInteger {
-    @inlinable func sum() -> Element {
+    func sum() -> Element {
         reduce(0, +)
     }
 }
 
 public extension Sequence where Element: UnsignedInteger {
-    @inlinable func sum() -> Element {
+    func sum() -> Element {
         reduce(0, +)
     }
 }

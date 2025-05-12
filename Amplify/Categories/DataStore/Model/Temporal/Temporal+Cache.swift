@@ -14,7 +14,6 @@ extension Temporal {
     // DateFormatter itself is thread safe.
     private static var formatterCache: [String: DateFormatter] = [:]
 
-    @usableFromInline
     /// The `Calendar` used for date operations.
     ///
     /// `identifier` is `.iso8601`
@@ -102,7 +101,6 @@ extension Temporal {
         // defer takes care of unlock
     }
 
-    @usableFromInline
     /// Turn a `String` into a `Foundation.Date`
     /// - Parameters:
     ///   - string: The date in `String` form.
@@ -126,7 +124,6 @@ extension Temporal {
             .invalidDateFormat(formats.joined(separator: " | "))
     }
 
-    @usableFromInline
     /// Turn a `Foundation.Date` into a `String`
     /// - Parameters:
     ///   - date: The `Foundation.Date` to be converted to `String` form.

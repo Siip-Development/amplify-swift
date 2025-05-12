@@ -9,22 +9,15 @@ import Foundation
 
 /// Internal generic method to reduce code reuse in the `init`s of `TemporalSpec`
 /// conforming types
-@usableFromInline
 internal struct SpecBasedDateConverting<Spec: TemporalSpec> {
-    @usableFromInline
     internal typealias DateConverter = (_ string: String, _ format: TemporalFormat?) throws -> (Date, TimeZone)
 
-    @usableFromInline
     internal let convert: DateConverter
 
-    @inlinable
-    @inline(never)
     init(converter: @escaping DateConverter = Self.default) {
         self.convert = converter
     }
 
-    @inlinable
-    @inline(never)
     internal static func `default`(
         iso8601String: String,
         format: TemporalFormat? = nil
@@ -36,7 +29,6 @@ internal struct SpecBasedDateConverting<Spec: TemporalSpec> {
                 from: iso8601String,
                 with: [format(for: Spec.self)]
             )
-
         } else {
             date = try Temporal.date(
                 from: iso8601String,
